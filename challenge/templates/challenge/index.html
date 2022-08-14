@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block page_title %} day-list {% endblock %}
+{% block content %}
+    {%for i in days_list%}
+    <li>
+        <a href="{% url 'day-of-week' i %}"> {{ i }} </a>
+    </li>
+    {% endfor %}
+{% endblock %}
