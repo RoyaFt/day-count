@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
 {% block page_title %} day-list {% endblock %}
+
+{% block header_refrence %} <link rel="stylesheet" href=" {% static 'challenge/challenge.css' %} "> {% endblock %}
+
 {% block content %}
     {%for i in days_list%}
-    <li>
+    <ul> 
         <a href="{% url 'day-of-week' i %}"> {{ i }} </a>
-    </li>
+    </ul>>
     {% endfor %}
 {% endblock %}

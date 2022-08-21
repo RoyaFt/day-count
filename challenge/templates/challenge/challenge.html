@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>choosu=ing page</title>
-</head>
-<body>
-    <b> {{ day|title }} </b>
-    {% if day_data is not None%}
-    <p> {{ day_data }} </p>
-    {% else %}
-    <p> there is no data for this day! </p>
-    {% endif %}
-    
+{%extends 'base.html'%}
 
-</body>
-</html>
+{% block page_title %} choose_day {% endblock %}
+
+{% block content %}
+<b> {{ day|title }} </b>
+{% if day_data is not None%}
+<p> {{ day_data }} </p>
+{% else %}
+<p> there is no data for this day! </p>
+{% endif %}
+{% endblock %}

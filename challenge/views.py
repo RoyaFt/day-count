@@ -3,6 +3,7 @@ from pydoc import render_doc
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 
 
@@ -14,19 +15,23 @@ my_week = {
     'tuesdat' : 'i wanna go trip',
     'wednesday' : 'i have some work to do',
     'tursday' : 'its my off',
-    'friday' : None ,
+    'friday' : 'BINGOooo...!' ,
 }
 
 
 
 def index2(request,day):
     data = my_week.get(day)
+    if data is None:
+        response_data = render_to_string ('404.html')
+        return HttpResponseNotFound (response_data)
     context = {
         "day" : day,
         "day_data" : data,
         }
         #return HttpResponse(f'day is: {day} and my data is: {data}')
     return render(request,'challenge/challenge.html',context)
+
 
 
 
