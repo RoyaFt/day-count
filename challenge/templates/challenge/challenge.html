@@ -1,9 +1,12 @@
 {%extends 'base.html'%}
+{% load static %}
 
-{% block page_title %} choose_day {% endblock %}
+{% block header_refrence%} <link rel="stylesheet" href="{% static 'challenge/challenge.css' %}"> {% endblock %}
+
+{% block page_title %} choose a day {% endblock %}
 
 {% block content %}
-<b> {{ day|title }} </b>
+<p><b> {{ day|title }} </b></p>
 {% if day_data is not None%}
 <p> {{ day_data }} </p>
 {% else %}
